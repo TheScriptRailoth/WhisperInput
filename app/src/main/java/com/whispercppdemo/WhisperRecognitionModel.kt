@@ -67,7 +67,7 @@ class WhisperRecognitionModel(
         val data = decodeBytes(bytes)
         printMessage("Transcribing data...\n")
         val text = whisperContext?.transcribeData(data)
-        printMessage("Done: $text\n")
+        printMessage("Done transcribing data.\n")
         text?.let { onResultListener(it) } ?: onResultListener("[no test!]")
     }
 

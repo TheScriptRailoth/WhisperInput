@@ -50,7 +50,7 @@
 
     <!-- Custom permission required by FetchUrlActivity to be able to fetch data from a given URL
     and interpret and execute its corresponding activity. -->
-    <uses-permission android:name="com.alexvt.whisperinput.speak.permission.FETCH_URL" />
+    <!--<uses-permission android:name="com.alexvt.whisperinput.speak.permission.FETCH_URL" />-->
 
     <!--
     <permission
@@ -64,11 +64,11 @@
     TODO: setting the permissionGroup to a non-existent group did not work in Android v12.
     android:permissionGroup="android.permission-group.RUN_ACTIVITY"
     -->
-    <permission
+    <!--<permission
         android:name="com.alexvt.whisperinput.speak.permission.FETCH_URL"
         android:description="@string/descriptionPermissionFetchUrl"
         android:label="@string/labelPermissionFetchUrl"
-        android:protectionLevel="dangerous" />
+        android:protectionLevel="dangerous" />-->
 
     <!-- Some Chromebooks don't support touch. Although not essential,
      it's a good idea to explicitly include this declaration. -->
@@ -360,11 +360,11 @@ Also, failed to set the launchMode from the resource, INSTALL_PARSE_FAILED_UNEXP
             android:name="com.alexvt.whisperinput.speak.activity.PermissionsRequesterActivity"
             android:exported="false"
             android:theme="@style/Theme.K6nele.Translucent" />
-        <activity
+        <!--<activity
             android:name="com.alexvt.whisperinput.speak.activity.FetchUrlActivity"
             android:exported="true"
             android:permission="com.alexvt.whisperinput.speak.permission.FETCH_URL"
-            android:theme="@style/Theme.K6nele.Translucent" />
+            android:theme="@style/Theme.K6nele.Translucent" />-->
         <!-- TODO: require: com.alexvt.whisperinput.speak.permission.GET_PUT_SETTING -->
         <activity
             android:name="com.alexvt.whisperinput.speak.activity.GetPutPreferenceActivity"
@@ -375,12 +375,6 @@ Also, failed to set the launchMode from the resource, INSTALL_PARSE_FAILED_UNEXP
             android:exported="false"
             android:label="@string/labelActivityQuickSettings"
             android:parentActivityName="com.alexvt.whisperinput.speak.activity.Preferences" />
-        <activity
-            android:name="com.alexvt.whisperinput.speak.activity.RecognitionServiceWsUrlActivity"
-            android:exported="false"
-            android:label="@string/titleWsServer"
-            android:parentActivityName="com.alexvt.whisperinput.speak.PreferencesRecognitionServiceWs"
-            android:windowSoftInputMode="stateUnchanged" />
         <activity
             android:name="com.alexvt.whisperinput.speak.demo.SimpleDemo"
             android:exported="false"

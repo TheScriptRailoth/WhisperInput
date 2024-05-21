@@ -5,7 +5,7 @@ dependencies {
     implementation project(':speechutils:app')
     // TODO: used only in ChunkedWebRecSessionResult, use Android's JSON library instead
     implementation 'com.googlecode.json-simple:json-simple:1.1'
-    implementation 'com.koushikdutta.async:androidasync:3.1.0'
+    //implementation 'com.koushikdutta.async:androidasync:3.1.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.preference:preference-ktx:1.2.0'
