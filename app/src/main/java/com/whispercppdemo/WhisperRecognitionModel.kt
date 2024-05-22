@@ -11,6 +11,8 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
 
+import com.whispercpp.whisper.WhisperContext;
+
 
 class WhisperRecognitionModel(
     private val context: Context
@@ -67,7 +69,7 @@ class WhisperRecognitionModel(
         printMessage("Reading wave bytes...\n")
         val data = decodeBytes(bytes)
         printMessage("Transcribing data...\n")
-        val text = whisperContext?.transcribeData(data)
+        val text = whisperContext?.transcribeData(data, false)
         printMessage("Done transcribing data.\n")
         text?.let { onResultListener(it) } ?: onResultListener("[no test!]")
     }
