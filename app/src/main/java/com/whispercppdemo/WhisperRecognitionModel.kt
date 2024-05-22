@@ -53,9 +53,10 @@ class WhisperRecognitionModel(
         printMessage("Loading model...\n")
         val models = context.assets.list("models/")
         if (models != null) {
+            val model = models[0];
             whisperContext =
-                WhisperContext.createContextFromAsset(context.assets, "models/" + models[0])
-            printMessage("Loaded model ${models[0]}.\n")
+                WhisperContext.createContextFromAsset(context.assets, "models/" + model)
+            printMessage("Loaded model ${model}.\n")
         }
     }
 
