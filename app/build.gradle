@@ -52,20 +52,20 @@ android {
     boolean signingPropertiesExist = signingPropertiesFile.exists()
     if (signingPropertiesExist) signingProperties.load(new FileInputStream(signingPropertiesFile))
 
-    signingConfigs {
-        release {
-            storeFile signingPropertiesExist ? file(signingProperties["signingStoreLocation"]) : null
-            storePassword signingProperties["signingStorePassword"]
-            keyAlias signingProperties["signingKeyAlias"]
-            keyPassword signingProperties["signingKeyPassword"]
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile signingPropertiesExist ? file(signingProperties["signingStoreLocation"]) : null
+//            storePassword signingProperties["signingStorePassword"]
+//            keyAlias signingProperties["signingKeyAlias"]
+//            keyPassword signingProperties["signingKeyPassword"]
+//        }
+//    }
 
     buildTypes {
         debug {
-            debuggable true
-            jniDebuggable true
-            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+            //signingConfig signingConfigs.release
         }
         release {
             debuggable false
@@ -73,7 +73,7 @@ android {
             shrinkResources true
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFile 'proguard.cfg'
-            signingConfig signingConfigs.release
+            //signingConfig signingConfigs.release
         }
     }
 
