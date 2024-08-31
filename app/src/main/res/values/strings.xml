@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="labelApp" translatable="false">Whisper Input</string>
+    <string name="labelApp" translatable="false">Vollaboard</string>
 
     <string name="labelComboListItem" translatable="false">• %2$s · %1$s</string>
     <string name="labelComboListItemWithoutLocale" translatable="false">• %1$s</string>
@@ -11,10 +11,10 @@
 
     <string name="descriptionApp" translatable="false">speech-to-text services for Android apps</string>
 
-    <string name="labelIme">Whisper Input voice keyboard</string>
+    <string name="labelIme">Volla input voice keyboard</string>
     <string name="labelRecognitionServiceHttp">Kõnele (grammar support)</string>
     <string name="labelRecognitionServiceWs">Kõnele (fast recognition)</string>
-    <string name="labelRecognitionServiceOffline">Whisper Input recognition service</string>
+    <string name="labelRecognitionServiceOffline">Vollaboard recognition service</string>
 
     <!-- Activity labels -->
     <string name="labelActivityRecognizerIntent">@string/labelApp</string>
