@@ -23,7 +23,7 @@ import java.io.IOException
 /**
  * Whisper.cpp based recognition
  */
-open class OfflineRecognitionService : AbstractRecognitionService() {
+class OfflineRecognitionService : AbstractRecognitionService() {
 
     @RequiresPermission(RECORD_AUDIO)
     @Throws(IOException::class)
@@ -53,7 +53,7 @@ open class OfflineRecognitionService : AbstractRecognitionService() {
         }
         val isPartialResults = bundle.getBoolean(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false)
         if (whisperRecognitionModel == null) {
-            whisperRecognitionModel = WhisperRecognitionModel(application, this::class.java)
+            whisperRecognitionModel = WhisperRecognitionModel(application)
             Log.i("WHISPER configured, once per app lifecycle")
         }
         // todo reimplement ad-hoc whisper.cpp integration; allow the model to fully preload
@@ -122,5 +122,3 @@ open class OfflineRecognitionService : AbstractRecognitionService() {
         private var whisperRecognitionModel: WhisperRecognitionModel? = null
     }
 }
-
-class OfflineRecognitionServiceEn : OfflineRecognitionService() {}

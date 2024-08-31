@@ -254,12 +254,12 @@
         <!-- Setting the process here solves the permission issue on Android 11. -->
 
         <service
-            android:name="com.alexvt.whisperinput.speak.service.OfflineRecognitionServiceEn"
+            android:name="com.alexvt.whisperinput.speak.service.OfflineRecognitionService"
             android:description="@string/summaryServiceOffline"
             android:exported="true"
             android:foregroundServiceType="microphone"
             android:icon="@drawable/ic_service"
-            android:label="@string/labelRecognitionServiceOfflineEn"
+            android:label="@string/labelRecognitionServiceOffline"
             android:permission="android.permission.RECORD_AUDIO"
             android:process=":service"
             tools:ignore="Instantiatable">
@@ -275,46 +275,7 @@
                 android:name="android.speech"
                 android:resource="@xml/recognition_service_offline" />
 
-            <meta-data
-                android:name="whisper.model"
-                android:value="ggml-tiny.bin" />
-            <meta-data
-                android:name="whisper.language"
-                android:value="auto" />
-
         </service>
-
-
-        <service
-            android:name="com.alexvt.whisperinput.speak.service.OfflineRecognitionService"
-            android:description="@string/summaryServiceOfflineEn"
-            android:exported="true"
-            android:foregroundServiceType="microphone"
-            android:icon="@drawable/ic_service"
-            android:label="@string/labelRecognitionServiceOfflineEn"
-            android:permission="android.permission.RECORD_AUDIO"
-            android:process=":service"
-            tools:ignore="Instantiatable">
-            <intent-filter>
-
-                <!-- The constant value is defined at RecognitionService.SERVICE_INTERFACE. -->
-                <action android:name="android.speech.RecognitionService" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.speech"
-                android:resource="@xml/recognition_service_offline" />
-
-            <meta-data
-                android:name="whisper.model"
-                android:value="ggml-tiny.en.bin" />
-            <meta-data
-                android:name="whisper.language"
-                android:value="en" />
-        </service>
-
-
-
 
         <service
             android:name="com.alexvt.whisperinput.speak.service.SpeechInputMethodService"

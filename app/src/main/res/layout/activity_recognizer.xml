@@ -15,7 +15,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/tvPrompt"
             android:layout_width="wrap_content"
@@ -40,18 +39,17 @@
             android:contentDescription="@string/cdSettings"
             app:srcCompat="@drawable/ic_settings" />
 
-        <!--
-        <ImageButton
-            android:id="@+id/bEnterPip"
-            android:layout_width="@dimen/layoutMargin32"
-            android:layout_height="@dimen/layoutMargin32"
-            android:layout_below="@+id/bSettings"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/button_go"
-            android:contentDescription="Enter Picture-in-picture mode"
-            app:srcCompat="@drawable/ic_picture_in_picture"
-            tools:targetApi="O" />
-         -->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/bEnterPip"-->
+<!--            android:layout_width="@dimen/layoutMargin32"-->
+<!--            android:layout_height="@dimen/layoutMargin32"-->
+<!--            android:layout_below="@+id/bSettings"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:background="@drawable/button_go"-->
+<!--            android:contentDescription="Enter Picture-in-picture mode"-->
+<!--            app:srcCompat="@drawable/ic_picture_in_picture"-->
+<!--            tools:targetApi="O" />-->
     </RelativeLayout>
 
     <com.alexvt.whisperinput.speak.view.SpeechInputView
