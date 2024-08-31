@@ -10,16 +10,20 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
+import android.content.ComponentName
+import android.content.pm.PackageManager
 
 import com.whispercpp.whisper.WhisperContext;
 
 
 class WhisperRecognitionModel(
-    private val context: Context
+    private val context: Context,
+    private val serviceClass: Class<*>
 ) : ViewModel() {
     var canTranscribe = false
     var dataLog = ""
 
+    private val service = ComponentName(context, serviceClass);
     private val modelsPath = File(context.filesDir, "models")
     private var whisperContext: WhisperContext? = null
 
@@ -53,10 +57,13 @@ class WhisperRecognitionModel(
 
     private suspend fun loadBaseModel() = withContext(Dispatchers.IO) {
         printMessage("Loading model...\n")
-        val models = context.assets.list("models/")
-        if (models != null) {
-            val model = models[0];
+        //val models = context.assets.list("models/")
+        //if (models != null) {
+        context.packageManager.getServiceInfo(service, PackageManager.GET_META_DATA).apply {
+            val model = metaData.getString("whisper.model") ?: "ggml-tiny.bin"
             whisperContext =
+//                WhisperContext.createContextFromAsset(context.assets, "models/" + model)
+//            printMessage("Loaded model ${model}.\n")
                 WhisperContext.createContextFromAsset(context.assets, "models/" + model)
             printMessage("Loaded model ${model}.\n")
         }
@@ -69,9 +76,17 @@ class WhisperRecognitionModel(
         printMessage("Reading wave bytes...\n")
         val data = decodeBytes(bytes)
         printMessage("Transcribing data...\n")
-        val text = whisperContext?.transcribeData(data, false)
-        printMessage("Done transcribing data.\n")
-        text?.let { onResultListener(it) } ?: onResultListener("[no test!]")
+
+//        val text = whisperContext?.transcribeData(data, false)
+//        printMessage("Done transcribing data.\n")
+//        text?.let { onResultListener(it) } ?: onResultListener("[no test!]")
+
+        context.packageManager.getServiceInfo(service, PackageManager.GET_META_DATA).apply {
+            val language = metaData.getString("whisper.language") ?: "auto"
+            val text = whisperContext?.transcribeData(language, data)
+            printMessage("Done: $language $text\n")
+            text?.let { onResultListener(it) } ?: onResultListener("[no test!]")
+        }
     }
 
     override fun onCleared() {
